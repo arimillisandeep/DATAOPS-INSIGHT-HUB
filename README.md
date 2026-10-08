@@ -88,6 +88,22 @@ src/
 
 ---
 
+## Deployment
+
+The app is deployed to **Vercel**: https://dataops-insight-hub.vercel.app
+
+- `vercel.json` adds an SPA rewrite so `BrowserRouter` deep links (e.g. `/pipelines/3`) resolve to `index.html`.
+- Vercel's zero-config Vite preset runs `npm install` + `npm run build` and serves `dist/`.
+- Deploy manually with the Vercel CLI:
+  ```bash
+  vercel login
+  vercel link --yes --project dataops-insight-hub
+  vercel deploy --prod --yes
+  ```
+- Or connect the GitHub repo in the Vercel dashboard for automatic deploys on every push.
+
+---
+
 ## Backend Roadmap (Phases 8–10)
 
 The API contract the frontend already expects:
